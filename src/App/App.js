@@ -6,8 +6,14 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-
+      reservations: []
     }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/reservations')
+      .then(response => response.json())
+      .then(reservations => console.log(reservations))
   }
 
   render() {
