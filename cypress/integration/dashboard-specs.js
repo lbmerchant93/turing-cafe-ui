@@ -8,6 +8,10 @@ describe('Dashboard UI', () => {
     cy.get('.app-title').contains('Turing Cafe Reservations').should('be.visible')
   });
 
+  it.only('Should have inputs for name, date, time, number of guests', () => {
+    cy.get('')
+  })
+
   it('Should have a section containing the reservations from the API', () => {
     cy.get('.resy-container')
       .children().should('have.length', '9')

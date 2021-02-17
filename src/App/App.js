@@ -29,15 +29,15 @@ class App extends Component {
     })
 
     return (
-      <div className="App">
+      <main className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'>
+        <section className='resy-form'>
           <Form addResy={this.addResy}/>
-        </div>
-        <div className='resy-container'>
+        </section>
+        <section className='resy-container'>
           {resys}
-        </div>
-      </div>
+        </section>
+      </main>
     )
   }
 }

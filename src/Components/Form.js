@@ -35,24 +35,28 @@ class Form extends Component {
     return (
       <div className='form-inputs'>
         <input
+        className='name-input'
         type='text'
         name='name'
         placeholder='Name'
         value={this.state.name}
         onChange={event => this.handleChange(event)}/>
         <input
+        className='date-input'
         type='text'
         name='date'
         placeholder='Date (mm/dd)'
         value={this.state.date}
         onChange={event => this.handleChange(event)}/>
         <input
+        className='time-input'
         type='text'
         name='time'
         placeholder='Time'
         value={this.state.time}
         onChange={event => this.handleChange(event)}/>
         <input
+        className='number-input'
         type='text'
         name='number'
         placeholder='Number of guests'
