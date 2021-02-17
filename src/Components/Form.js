@@ -15,7 +15,21 @@ class Form extends Component {
 
   handleChange = event => {
       this.setState({ [event.target.name]: event.target.value });
+  }
+
+  submitResy = event => {
+    event.preventDefault();
+    const newResy = {
+      id: Date.now(),
+      ...this.state
     }
+    this.props.addResy(newResy);
+    this.clearInputs();
+  }
+
+  clearInputs = () => {
+    this.setState({ name: '', date: '', time: '', number: '' })
+  }
 
   render() {
     return (
@@ -44,7 +58,7 @@ class Form extends Component {
         placeholder='Number of guests'
         value={this.state.number}
         onChange={event => this.handleChange(event)}/>
-        <button className='submit'>Make Reservation</button>
+        <button className='submit' onClick={event => this.submitResy(event)}>Make Reservation</button>
       </div>
     )
   }
