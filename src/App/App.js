@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
+import ResyCard from '../Components/ResyCard';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -10,7 +18,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          
+          <ResyCard />
         </div>
       </div>
     )
