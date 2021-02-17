@@ -29,6 +29,13 @@ class App extends Component {
   }
 
   deleteResy = (id) => {
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+      method: 'DELETE',
+      headers: {
+      'Content-type': 'application/json'
+      },
+    })
+      .then(res => res.json())
     const filteredResys = this.state.reservations.filter(res => res.id !== id);
     this.setState({ reservations: filteredResys })
   }
