@@ -1,16 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ResyCard.css';
 
-class ResyCard extends Component {
-  constructor() {
-    super()
-    this.state = {
+const ResyCard = (props) => {
 
-    }
-  }
-  
-
-  render() {
     return (
       <div className='resy-card'>
         <h2 className='resy-name'>name</h2>
@@ -19,8 +11,7 @@ class ResyCard extends Component {
         <h3 className='resy-num-guests'>Number of guests: __ </h3>
         <button className='cancel-btn'>Cancel</button>
       </div>
-    )
-  }
+  )
 }
 
 export default ResyCard;

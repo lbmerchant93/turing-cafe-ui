@@ -13,10 +13,16 @@ class App extends Component {
   componentDidMount() {
     fetch('http://localhost:3001/api/v1/reservations')
       .then(response => response.json())
-      .then(reservations => console.log(reservations))
+      .then(reservations => this.setState({reservations: reservations}))
   }
 
   render() {
+    const { reservations } = this.state;
+
+    const resys = reservations.map(res => {
+      return (<ResyCard reservation={res} />)
+    })
+
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
@@ -24,7 +30,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          <ResyCard />
+          {resys}
         </div>
       </div>
     )
