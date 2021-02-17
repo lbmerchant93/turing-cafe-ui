@@ -30,14 +30,14 @@ class App extends Component {
     const { reservations } = this.state;
 
     const resys = reservations.map(res => {
-      return (<ResyCard reservation={res} key={res.id}/>)
+      return (<ResyCard reservation={res} key={res.id} deleteResy={this.deleteResy}/>)
     })
 
     return (
       <main className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <section className='resy-form'>
-          <Form addResy={this.addResy}/>
+          <Form addResy={this.addResy} />
         </section>
         <section className='resy-container'>
           {resys}

@@ -11,7 +11,7 @@ const ResyCard = (props) => {
         <h3 className='resy-date'>{date}</h3>
         <h3 className='resy-time'>{time}</h3>
         <h3 className='resy-num-guests'>Number of guests: {number}</h3>
-        <button className='cancel-btn'>Cancel</button>
+        <button className='cancel-btn' onClick={() => props.deleteResy(id)}>Cancel</button>
       </article>
   )
 }
