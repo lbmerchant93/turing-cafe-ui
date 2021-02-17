@@ -8,6 +8,10 @@ describe('Dashboard UI', () => {
     cy.get('.app-title').contains('Turing Cafe Reservations').should('be.visible')
   });
 
+  it('Should have a background image displaying', () => {
+    cy.get('.App').should('have.css', 'background-image', 'url("http://localhost:3000/static/media/cafe-img.12c28102.jpeg")')
+  })
+
   it('Should have inputs for name, date, time, number of guests', () => {
     cy.get('.name-input')
       .type('Lucas')
@@ -23,7 +27,7 @@ describe('Dashboard UI', () => {
       .should('have.value', '2')
   })
 
-  it.only('Should add reservation to the list when inputs are filled and the Make Reservation button is clicked', () => {
+  it('Should add reservation to the list when inputs are filled and the Make Reservation button is clicked', () => {
     cy.get('.name-input').type('Lucas')
     cy.get('.date-input').type('02/17')
     cy.get('.time-input').type('5:00')
@@ -36,6 +40,10 @@ describe('Dashboard UI', () => {
   it('Should have a section containing the reservations from the API', () => {
     cy.get('.resy-container')
       .children().should('have.length', '9')
+  })
+
+  it('Should have a border around the ResyCard', () => {
+    cy.get('.resy-card1').should('have.css', 'border', '5px solid rgb(0, 128, 128)')
   })
 
   it('Should have a name, date, time, number of guest, and cancel button for each card. Only testing on one but all others will be the same being ResyCard components too.', () => {
