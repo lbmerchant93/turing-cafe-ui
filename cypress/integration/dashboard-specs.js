@@ -8,8 +8,29 @@ describe('Dashboard UI', () => {
     cy.get('.app-title').contains('Turing Cafe Reservations').should('be.visible')
   });
 
-  it.only('Should have inputs for name, date, time, number of guests', () => {
-    cy.get('')
+  it('Should have inputs for name, date, time, number of guests', () => {
+    cy.get('.name-input')
+      .type('Lucas')
+      .should('have.value', 'Lucas')
+    cy.get('.date-input')
+      .type('02/17')
+      .should('have.value', '02/17')
+    cy.get('.time-input')
+      .type('5:00')
+      .should('have.value', '5:00')
+    cy.get('.number-input')
+      .type('2')
+      .should('have.value', '2')
+  })
+
+  it.only('Should add reservation to the list when inputs are filled and the Make Reservation button is clicked', () => {
+    cy.get('.name-input').type('Lucas')
+    cy.get('.date-input').type('02/17')
+    cy.get('.time-input').type('5:00')
+    cy.get('.number-input').type('2')
+    cy.get('.submit').click()
+    cy.get('.resy-container')
+      .children().should('have.length', '10')
   })
 
   it('Should have a section containing the reservations from the API', () => {
