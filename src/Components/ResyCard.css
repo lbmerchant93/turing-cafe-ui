@@ -1,0 +1,21 @@
+.resy-card {
+  border: 5px solid teal;
+  border-radius: 15px;
+  background-color: white;
+  width: 200px;
+}
+.resy-name {
+  font-size: large;
+  color: teal;
+}
+.resy-date,
+.resy-time,
+.resy-num-guests {
+  font-size: small;
+  color: teal;
+}
+.cancel-btn {
+  background-color: teal;
+  color: white;
+  margin-bottom: 5px;
+}
