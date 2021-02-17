@@ -27,6 +27,11 @@ describe('Dashboard UI', () => {
       .should('have.value', '2')
   })
 
+  it('Should have a section containing the reservations from the API', () => {
+    cy.get('.resy-container')
+    .children().should('have.length', '9')
+  })
+
   it('Should add reservation to the list when inputs are filled and the Make Reservation button is clicked', () => {
     cy.get('.name-input').type('Lucas')
     cy.get('.date-input').type('02/17')
@@ -37,10 +42,11 @@ describe('Dashboard UI', () => {
       .children().should('have.length', '10')
   })
 
-  it('Should have a section containing the reservations from the API', () => {
+  it('Should have the new length of reservations on reload after adding a new one', () => {
     cy.get('.resy-container')
-      .children().should('have.length', '9')
+      .children().should('have.length', '10')
   })
+
 
   it('Should have a border around the ResyCard', () => {
     cy.get('.resy-card1').should('have.css', 'border', '5px solid rgb(0, 128, 128)')
@@ -52,5 +58,16 @@ describe('Dashboard UI', () => {
     cy.get('.resy-card1  .resy-time').contains('7:00')
     cy.get('.resy-card1  .resy-num-guests').contains('Number of guests: 12')
     cy.get('.resy-card1  .cancel-btn').contains('Cancel')
+  })
+
+  it('Should delete the last reservation created', () => {
+    cy.get('.resy-container').children().last().children().last().click()
+    cy.get('.resy-container')
+    .children().should('have.length', '9')
+  })
+
+  it('Should only have the original number of reservations on reload after deleting the last created one', () => {
+    cy.get('.resy-container')
+    .children().should('have.length', '9')
   })
 });
