@@ -14,14 +14,19 @@ class Form extends Component {
   }
 
   handleChange = event => {
+    if(event.target.name === 'number') {
+      this.setState({ [event.target.name]: parseInt(event.target.value) })
+    } else {
       this.setState({ [event.target.name]: event.target.value });
+    }
   }
 
   submitResy = event => {
     event.preventDefault();
     const newResy = {
+      ...this.state,
       id: Date.now(),
-      ...this.state
+      number: parseInt(this.state.number)
     }
     this.props.addResy(newResy);
     this.clearInputs();
@@ -59,7 +64,6 @@ class Form extends Component {
         className='number-input'
         type='number'
         name='number'
-        placeholder='Number of guests'
         value={this.state.number}
         onChange={event => this.handleChange(event)}/>
         <button className='submit' onClick={event => this.submitResy(event)}>Make Reservation</button>
