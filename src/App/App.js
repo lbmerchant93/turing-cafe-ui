@@ -20,7 +20,7 @@ class App extends Component {
     const { reservations } = this.state;
 
     const resys = reservations.map(res => {
-      return (<ResyCard reservation={res} />)
+      return (<ResyCard reservation={res} key={res.id}/>)
     })
 
     return (
