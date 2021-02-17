@@ -21,6 +21,11 @@ class App extends Component {
     this.setState({ reservations: [...this.state.reservations, newResy] });
   }
 
+  deleteResy = (id) => {
+    const filteredResys = this.state.reservations.filter(res => res.id !== id);
+    this.setState({ reservations: filteredResys })
+  }
+
   render() {
     const { reservations } = this.state;
 
